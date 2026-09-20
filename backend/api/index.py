@@ -6,7 +6,6 @@ from groq import Groq
 
 app = FastAPI()
 
-# In Vercel production, this reads the Environment Variable set in the dashboard
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 class UserPreferences(BaseModel):
@@ -31,7 +30,7 @@ def explain(prefs: UserPreferences):
 
     try:
         response = client.chat.completions.create(
-            model="llama-3.1-8b-instant",
+            model="llama-3.3-70b-versatile",  # <--- Updated model name
             messages=[
                 {"role": "system", "content": system_instruction},
                 {"role": "user", "content": f"Explain this concept: {prefs.topic}"}
