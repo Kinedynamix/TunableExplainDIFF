@@ -30,7 +30,7 @@ def explain(prefs: UserPreferences):
 
     try:
         response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",  # <--- Updated model name
+            model="llama3-8b-8192",  # Standard active Groq model ID
             messages=[
                 {"role": "system", "content": system_instruction},
                 {"role": "user", "content": f"Explain this concept: {prefs.topic}"}
