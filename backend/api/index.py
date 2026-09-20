@@ -30,7 +30,7 @@ def explain(prefs: UserPreferences):
 
     try:
         response = client.chat.completions.create(
-            model="llama3-8b-8192",  # Standard active Groq model ID
+            model="openai/gpt-oss-20b",  # Replacement as the docs say
             messages=[
                 {"role": "system", "content": system_instruction},
                 {"role": "user", "content": f"Explain this concept: {prefs.topic}"}
